@@ -103,31 +103,29 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
-const filePath = path.join(__dirname, '../routes/hospital.json');
+const filePath = path.join(__dirname, 'hospital.json');
 
 // Read hospital data from JSON file
 const readHospitalData = () => {
-  try {
+  
     const data = fs.readFileSync(filePath, 'utf8');
     return JSON.parse(data);
-  } catch (err) {
-    console.error(err);
-    return [];
-  }
+  
+  
 };
 
 // Write hospital data back to JSON file
 const writeHospitalData = (hospitalData) => {
-  try {
+
     fs.writeFileSync(filePath, JSON.stringify(hospitalData, null, 2), 'utf8');
-  } catch (err) {
-    console.error(err);
-  }
+  
+    
+  
 };
 
 // GET operation
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, "../routes/hospital.json"));
+  res.sendFile(path.join(__dirname, "hospital.json"));
 });
 
 // POST operation
@@ -143,10 +141,10 @@ router.post('/add', (req, res) => {
 // PUT operation
 router.put('/edit/:id', (req, res) => {
     res.send('Hospital data updated successfully');
-  const hospitalId = parseInt((req.params.id));
+  const hospitalId = parseInt(req.params.id);
   const updatedHospitalData = req.body;
   let hospitalData = readHospitalData();
-  const hospitalIndex = hospitalData.findIndex(hospital => (hospital.id) === hospitalId);
+ const hospitalIndex = hospitalData.findIndex(hospital => hospital.id=== hospitalId);
   if (hospitalIndex === -1) {
     return res.status(404).send('Hospital not found');
   }
@@ -156,18 +154,21 @@ router.put('/edit/:id', (req, res) => {
 });
 
 // DELETE operation
-router.delete('/delete/:id', (req, res) => {
-    res.status(200).send('Hospital deleted successfully');
-  const hospitalId = parseInt((req.params.id));
+router.delete('/delete', (req, res) => {
+   
+  const hospitalId = parseInt(req.params.id);
   let hospitalData = readHospitalData();
-  const hospitalIndex = hospitalData.findIndex(hospital => (hospital.id) === hospitalId);
+   const hospitalIndex = hospitalData.findIndex(hospital => hospital.id === hospitalId);
   if (hospitalIndex === -1) {
-    return res.status(404).send('Hospital not found');
+   //return res.status(404).send('Hospital not found');
   }
   hospitalData.splice(hospitalIndex, 1);
   writeHospitalData(hospitalData);
+  res.send('Hospital deleted successfully');
  
-});
+}
+);
+
 
 module.exports = router;
 

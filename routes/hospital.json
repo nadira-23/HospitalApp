@@ -1,55 +1,32 @@
-{
-    "hospitals": [
-      {
-        "id": "1",
-        "name": "SUT Hospital",
-        "patientCount": 500,
-        "location": "kollam"
-      },
-      {
-        "id": "2",
-        "name": "SK Hospital",
-        "patientCount": 320,
-        "location": "Banglore"
-      },
-      {
-        "id": "3",
-        "name": "KIMS Hospital",
-        "patientCount": 200,
-        "location": "Chennai"
-      },
-      {
-        "id": "4",
-        "name": "PRS Hospital",
-        "patientCount": 400,
-        "location": "Trivandrum"
-      },
-      {
-        "id": "5",
-        "name": "Aster Hospital",
-        "patientCount": 700,
-        "location": "Kochi"
-      },
-      {
-        "id": "6",
-        "name": "General Hospital",
-        "patientCount": 540,
-        "location": "Trivandrum"
-      }
-    ]
+[
+  {
+    "id": "1",
+    "name": "SUT Hospital",
+    "patientCount": 500,
+    "location": "kollam"
+  },
+  {
+    "id": "2",
+    "name": "SK Hospital",
+    "patientCount": 320,
+    "location": "Banglore"
+  },
+  {
+    "id": "3",
+    "name": "KIMS Hospital",
+    "patientCount": 200,
+    "location": "Chennai"
+  },
+  {
+    "id": "4",
+    "name": "PRS Hospital",
+    "patientCount": 400,
+    "location": "Trivandrum"
+  },
+  {
+    "id": "7",
+    "name": "Aster Hospital",
+    "patientCount": 700,
+    "location": "Kochi"
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+]
